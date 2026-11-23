@@ -54,3 +54,64 @@
 .site-nav a { transition: background 120ms, transform 120ms }
 .site-nav a:hover { transform: translateY(-3px) }
 
+
+/* ── Diseño adaptable ─────────────────────────────────────────────────────── */
+.hero { gap: 1.5rem; align-items: flex-start }
+.hero-main { flex: 1; min-width: 0 }
+.hero .promo h3 { color: #1e293b }
+.search input { border: 1px solid #e2e8f0; background: #ffffff }
+form input, form textarea { border: 1px solid #e2e8f0 !important; font: inherit }
+
+/* Las páginas se anidan dentro de .app-root: sin doble margen */
+.app-root .app-root { padding: 0; max-width: none }
+
+.header-actions { display: flex; align-items: center; gap: 0.5rem; order: 3 }
+.site-nav { order: 2 }
+.menu-toggle { display: none }
+
+.site-footer { margin-top: 36px; padding: 20px 0; border-top: 1px solid #e2e8f0 }
+.site-footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap }
+
+@media (max-width: 880px) {
+  header.app-header { flex-wrap: wrap; padding: 0.75rem 0.5rem }
+  .brand { gap: 0.6rem; min-width: 0 }
+  .brand h1 { font-size: 1.6rem }
+  .brand .muted { font-size: 0.72rem; line-height: 1.2; max-width: 9ch }
+  .header-actions { margin-left: auto }
+  .menu-toggle {
+    display: inline-flex; flex-direction: column; justify-content: center; gap: 4px;
+    width: 42px; height: 38px; padding: 0 10px;
+  }
+  .menu-toggle span { display: block; height: 2px; border-radius: 2px; background: #1e293b }
+  nav.site-nav {
+    order: 4; flex-basis: 100%;
+    display: none; flex-direction: column; align-items: stretch; gap: 0.25rem;
+    padding-top: 0.5rem; border-top: 1px solid #e2e8f0;
+  }
+  nav.site-nav.open { display: flex; animation: fadeInUp 220ms ease both }
+  .site-nav a { padding: 0.7rem 0.75rem }
+  .site-nav a::after { display: none }
+
+  .hero { flex-direction: column; align-items: stretch; padding-top: 1.25rem }
+  .search { max-width: none }
+}
+
+@media (max-width: 560px) {
+  .app-root { padding: 0.9rem }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem }
+  .product-card { padding: 0.75rem }
+  .product-card img { height: 110px }
+  .product-card h3 { font-size: 0.92rem }
+  .product-info { flex-direction: column; align-items: stretch; gap: 0.5rem }
+  .product-info button { width: 100% }
+  .site-footer-inner { flex-direction: column; text-align: center }
+  .drawer-panel { width: 100% }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand h1, .glow.animated, .hero .promo { animation: none }
+}
+
+/* Carrito: fondo claro legible en todo el panel */
+.drawer-panel { background: var(--card); overflow-y: auto; box-shadow: -20px 0 40px rgba(2, 6, 23, 0.25) }
+.drawer-panel ul { padding-left: 0; list-style: none }

@@ -15,6 +15,8 @@ import './App.css'
 function App() {
   const { totalItems } = useCart()
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const closeMenu = () => setMenuOpen(false)
 
   return (
     <>
@@ -24,13 +26,23 @@ function App() {
             <Link to="/"><h1>Webcole</h1></Link>
             <span className="muted">TU LISTA CON CLICK</span>
           </div>
-          <nav className="site-nav">
+          <div className="header-actions">
+            <button className="cart-button" onClick={() => setDrawerOpen(true)}>Carrito ({totalItems})</button>
+            <button
+              className="menu-toggle"
+              aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(open => !open)}
+            >
+              <span /><span /><span />
+            </button>
+          </div>
+          <nav className={`site-nav${menuOpen ? ' open' : ''}`} onClick={closeMenu}>
             <Link to="/">Inicio</Link>
             <Link to="/categorias">Categorías</Link>
             <Link to="/acerca">Acerca</Link>
             <Link to="/contacto">Contacto</Link>
             <Link to="/faq">FAQ</Link>
-            <button onClick={() => setDrawerOpen(true)}>Carrito ({totalItems})</button>
           </nav>
         </header>
 

@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="app-root">
       <section className="hero">
-        <div style={{flex:1}}>
+        <div className="hero-main">
           <h2>Ofertas y Promociones</h2>
           <div className="promo" style={{background:'linear-gradient(90deg, rgba(107,123,255,0.12), rgba(123,245,255,0.06))', padding:18, borderRadius:12}}>
             <h3 style={{margin:0}}>Oferta especial: 15% en mochilas y cuadernos</h3>
