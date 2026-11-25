@@ -6,7 +6,6 @@
  */
 
 import fs from 'fs';
-import path from 'path';
 
 const checks = [];
 
@@ -94,7 +93,7 @@ try {
     const productCount = (content.match(/id: '/g) || []).length;
     check(`  ${productCount} productos en products.js`, productCount >= 37);
   }
-} catch (e) {
+} catch {
   check(`  productos.js legible`, false);
 }
 

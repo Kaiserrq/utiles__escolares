@@ -7,7 +7,7 @@ export function CartProvider({ children }) {
     try {
       const raw = localStorage.getItem('cart')
       return raw ? JSON.parse(raw) : []
-    } catch (e) {
+    } catch {
       return []
     }
   })
@@ -15,7 +15,9 @@ export function CartProvider({ children }) {
   useEffect(() => {
     try {
       localStorage.setItem('cart', JSON.stringify(cart))
-    } catch (e) {}
+    } catch {
+      // almacenamiento no disponible
+    }
   }, [cart])
 
   function addToCart(product, qty = 1) {
@@ -54,4 +56,5 @@ export function CartProvider({ children }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => useContext(CartContext)

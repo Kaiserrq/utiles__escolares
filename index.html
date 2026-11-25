@@ -1,10 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ugel_mobile</title>
+    <meta name="description" content="Webcole: tu lista escolar, lista en un click. Cuadernos, mochilas, uniformes y todo lo de la lista del cole. Envío gratis desde S/ 50." />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (function () {
+        try {
+          var p = localStorage.getItem("theme");
+          var t = p === "light" || p === "dark" ? p : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", t);
+          document.documentElement.style.colorScheme = t;
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="theme-color" content="#f7f9ff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+    <title>Webcole · Útiles escolares</title>
   </head>
   <body>
     <div id="root"></div>

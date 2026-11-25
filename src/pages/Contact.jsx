@@ -1,18 +1,51 @@
-export default function Contact() {
-  return (
-    <div className="app-root">
-      <h2>Contacto - Webcole</h2>
-      <p className="muted">¿Tienes preguntas sobre nuestros útiles escolares o necesitas ayuda con tu pedido? Contáctanos aquí.</p>
+import { useState } from 'react'
+import PageHeader from '../components/PageHeader.jsx'
 
-      <form onSubmit={(e) => { e.preventDefault(); alert('Mensaje enviado (simulado)') }} style={{display:'grid', gap:12, maxWidth:640}}>
-        <input placeholder="Tu nombre" required style={{padding:8, borderRadius:6, border:'1px solid rgba(255,255,255,0.04)'}} />
-        <input type="email" placeholder="Tu email" required style={{padding:8, borderRadius:6, border:'1px solid rgba(255,255,255,0.04)'}} />
-        <textarea placeholder="Mensaje" rows={6} required style={{padding:8, borderRadius:6, border:'1px solid rgba(255,255,255,0.04)'}} />
-        <div style={{display:'flex', gap:8}}>
-          <button className="glow">Enviar</button>
-          <button type="button" onClick={() => alert('Llamada simulada a soporte')}>Llamar soporte</button>
+export default function Contact() {
+  const [sent, setSent] = useState(false)
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    e.currentTarget.reset()
+    setSent(true)
+  }
+
+  return (
+    <>
+      <PageHeader title="Contacto" subtitle="¿Dudas con tu lista o con un pedido? Escríbenos." />
+      <div className="container contact">
+        <form className="form" onSubmit={onSubmit}>
+          <div className="field">
+            <label htmlFor="c-name">Tu nombre</label>
+            <input id="c-name" name="name" autoComplete="name" required onChange={() => setSent(false)} />
+          </div>
+          <div className="field">
+            <label htmlFor="c-mail">Tu correo</label>
+            <input id="c-mail" name="email" type="email" autoComplete="email" required onChange={() => setSent(false)} />
+          </div>
+          <div className="field">
+            <label htmlFor="c-msg">Mensaje</label>
+            <textarea id="c-msg" name="message" rows={6} required onChange={() => setSent(false)} />
+          </div>
+          <button type="submit" className="btn btn-primary">Enviar mensaje</button>
+          {sent && <p className="form-ok" role="status">Mensaje enviado. Te respondemos en 24 h.</p>}
+        </form>
+
+        <div className="contact-cards">
+          <div className="info-card" style={{ '--cat': 'var(--hl-green)' }}>
+            <h2>WhatsApp</h2>
+            <p>+51 900 000 000</p>
+          </div>
+          <div className="info-card" style={{ '--cat': 'var(--hl-yellow)' }}>
+            <h2>Correo</h2>
+            <p>hola@webcole.com</p>
+          </div>
+          <div className="info-card" style={{ '--cat': 'var(--hl-pink)' }}>
+            <h2>Horario</h2>
+            <p>Lunes a sábado, de 9:00 a 18:00</p>
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </>
   )
 }
