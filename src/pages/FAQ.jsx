@@ -1,7 +1,7 @@
 import PageHeader from '../components/PageHeader.jsx'
 
 const qas = [
-  { q: '¿Cómo realizo una compra?', a: 'Busca los útiles que necesitas, agrégalos a Mi lista con el botón "Agregar", revisa la lista desde el encabezado y haz clic en "Pagar". Este demo muestra una compra simulada.' },
+  { q: '¿Cómo realizo una compra?', a: 'Busca los útiles que necesitas, agrégalos a Mi lista con el botón "Agregar", revisa la lista desde el encabezado y haz clic en "Pagar". Se abre una simulación de pago: eliges Yape, Plin, tarjeta Visa o Mastercard, PagoEfectivo o transferencia, indicas si quieres boleta o factura y recibes un comprobante de muestra. No se cobra nada ni se guardan tus datos.' },
   { q: '¿Cómo tengo acceso a todas las categorías?', a: 'Entra a Categorías desde el menú o usa los botones de color en la página de inicio. También puedes usar el buscador.' },
   { q: '¿Cómo se guarda mi lista?', a: 'Tu lista se guarda automáticamente en tu navegador, así que tus productos se mantienen aunque recargues la página.' },
   { q: '¿Hay descuentos?', a: 'Sí, tenemos promociones en mochilas, cuadernos y paquetes de útiles. Revisa la página de inicio para ver las ofertas actuales.' },

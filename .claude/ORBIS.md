@@ -11,7 +11,8 @@ SPA React 19 + Vite 7 + react-router-dom 6. Catálogo de 37 productos (src/data/
 - src/data/: products.js, categories.js (color por categoría + producto representativo).
 - src/components/: Header (menú hamburguesa <1024), HeroScene (escena 3D CSS con tilt), ProductArt (arte SVG),
   ProductCard, CartDrawer, CartItem, CartSummary, EmptyList, PageHeader, Footer, Logo.
-- src/pages/: Home (hero, cinta, catálogo con pestañas, ?category= y ?q= con useSearchParams), Product, Categories (mosaico), Cart, About, Contact, FAQ.
+- src/components/checkout/: CheckoutModal (portal, pasos pay/processing/approved/receipt, z-index 200), MethodArt (logos/QR demo), CardForm (tarjeta 3D), checkoutUtils.js, Receipt (boleta/factura; @media print imprime solo el comprobante), checkout.css. Lo abre CartSummary (botón Pagar). Correlativo en localStorage 'invoiceSeq'.
+- src/pages/: Terms y Privacy (usan LegalPage: índice sticky/plegable), Home (hero, cinta, catálogo con pestañas, ?category= y ?q= con useSearchParams), Product, Categories (mosaico), Cart, About, Contact, FAQ.
 - src/hooks/: tilt.js (createTilt, inclinación 3D por puntero), useScrollLock.js.
 - src/context/CartContext.jsx: addToCart(product, qty), updateQty, removeFromCart, clearCart.
 
@@ -28,5 +29,5 @@ SPA React 19 + Vite 7 + react-router-dom 6. Catálogo de 37 productos (src/data/
 
 ## Pendientes
 - Imágenes reales de producto (reemplazar ProductArt si se desea).
-- Checkout real (hoy es mensaje simulado).
-- Términos y Privacidad son anclas vacías.
+- Checkout real (hoy es simulación completa, sin backend).
+- Términos/Privacidad: textos de ejemplo (/terminos, /privacidad).

@@ -6,6 +6,8 @@ import CartPage from './pages/Cart.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import FAQ from './pages/FAQ.jsx'
+import Terms from './pages/Terms.jsx'
+import Privacy from './pages/Privacy.jsx'
 import Categories from './pages/Categories.jsx'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
@@ -38,6 +40,8 @@ function App() {
           <Route path="/acerca" element={<About />} />
           <Route path="/contacto" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/terminos" element={<Terms />} />
+          <Route path="/privacidad" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext.jsx'
 import { formatPEN } from '../utils/money.js'
+import CheckoutModal from './checkout/CheckoutModal.jsx'
 
 const FREE_SHIPPING = 50
 
@@ -32,12 +33,12 @@ export default function CartSummary({ onNavigate, showContinue = true }) {
         <span>Total</span>
         <strong className="total">{formatPEN(totalPrice)}</strong>
       </div>
-      <button type="button" className="btn btn-primary btn-block" onClick={() => setPaid(true)}>Pagar {formatPEN(totalPrice)}</button>
-      {paid && <p className="pay-msg" role="status">Compra simulada: es un demo y no se cobró nada. ¡Gracias!</p>}
+      <button type="button" className="btn btn-primary btn-block" disabled={totalPrice <= 0} onClick={() => setPaid(true)}>Pagar {formatPEN(totalPrice)}</button>
+      {paid && totalPrice > 0 && <CheckoutModal onClose={() => setPaid(false)} onDone={onNavigate} />}
       {showContinue && (
         <Link to="/#catalogo" className="btn btn-ghost btn-block" onClick={onNavigate}>Seguir comprando</Link>
       )}
-      <button type="button" className="link-btn muted-link" onClick={() => { clearCart(); setPaid(false) }}>Vaciar lista</button>
+      <button type="button" className="link-btn muted-link" onClick={() => { clearCart() }}>Vaciar lista</button>
     </div>
   )
 }

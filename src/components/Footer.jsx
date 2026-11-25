@@ -16,8 +16,8 @@ export default function Footer() {
           <Link to="/categorias">Categorías</Link>
           <Link to="/contacto">Contacto</Link>
           <Link to="/faq">FAQ</Link>
-          <a href="#terminos">Términos</a>
-          <a href="#privacidad">Privacidad</a>
+          <Link to="/terminos">Términos</Link>
+          <Link to="/privacidad">Privacidad</Link>
         </nav>
         <p className="footer-copy">© 2026 Webcole</p>
       </div>
